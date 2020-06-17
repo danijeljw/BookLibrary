@@ -36,18 +36,18 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li {%- if request.path == url_for('book.index') %} class="active"{%- endif -%} ><a
-                            href="{{ url_for('book.index') }}">书籍清单</a></li>
+                            href="{{ url_for('book.index') }}">Book List</a></li>
                     {%- if current_user.is_authenticated -%}
                         <li {%- if request.path == url_for('book.tags') %} class="active"{%- endif -%} ><a
-                                href="{{ url_for('book.tags') }}">标签</a></li>
+                                href="{{ url_for('book.tags') }}">Label</a></li>
                         {%- if current_user.can(Permission.ADD_BOOK) -%}
                             <li {%- if request.path == url_for('book.add') %} class="active"{%- endif -%} ><a
-                                    href="{{ url_for('book.add') }}">添加新书</a></li>
+                                    href="{{ url_for('book.add') }}">Add New Book</a></li>
                         {%- endif -%}
                         <li {%- if request.path == url_for('user.index') %} class="active"{%- endif -%} ><a
-                                href="{{ url_for('user.index') }}">已注册用户</a></li>
+                                href="{{ url_for('user.index') }}">Registered Users</a></li>
                         <li {%- if request.path == url_for('log.index') %} class="active"{%- endif -%} ><a
-                                href="{{ url_for('log.index') }}">借阅信息</a></li>
+                                href="{{ url_for('log.index') }}">Borrowing Information</a></li>
                     {%- endif -%}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -56,9 +56,9 @@
                             class="active"{%- endif -%} >
                             <a href="{{ url_for('user.detail',user_id=current_user.id) }}">{{ current_user.name }}</a>
                         </li>
-                        <li><a href="{{ url_for('auth.logout') }}">登出</a></li>
+                        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                     {%- else -%}
-                        <li><a href="{{ url_for('auth.login') }}">登入</a></li>
+                        <li><a href="{{ url_for('auth.login') }}">Login</a></li>
                     {%- endif -%}
                 </ul>
             </div><!-- /.navbar-collapse -->
